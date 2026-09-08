@@ -21,4 +21,3 @@ Simulação acadêmica de phishing para a disciplina de Segurança da Informaç�
 - `login.html` — cadastro fictício.
 - `resultado.html` — revelação, explicação e pesquisa.
 - `style.css` — identidade visual e responsividade.
-- `assets/bonus-thumbnail.png` — imagem fornecida pela equipe.
