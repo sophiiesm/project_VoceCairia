@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok — Para você</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="feed-page">
+
+    <main class="tiktok-screen">
+        <header class="feed-header">
+            <button class="back-button" aria-label="Voltar">‹</button>
+
+            <div class="search-bar">
+                <span class="search-icon">⌕</span>
+                <span>como ganhar dinheiro assistindo vídeos</span>
+                <strong>Procurar</strong>
+            </div>
+        </header>
+
+        <section class="video-post">
+            <img
+                class="post-image"
+                src="imgs/tiktokbonus.png" alt="Imaagem de fundo do tiktok bonus."
+            >
+
+            <div class="post-overlay">
+                <div class="post-copy">
+                    <h1>É a sua experiência no TikTok,<br> só que com um bônus especial.</h1>
+
+                    <div class="bonus-card">
+                        <span class="bonus-label">PROGRAMA DE RECOMPENSAS</span>
+                        <strong>Quer ganhar dinheiro assistindo vídeos?</strong>
+                        <p>Assista a vídeos, participe das atividades e acumule recompensas.</p>
+                        <button onclick="openOpportunity()">Quero participar</button>
+                    </div>
+                </div>
+
+                <aside class="interaction-rail" aria-label="Interações">
+                    <div class="profile-bubble">
+                        <img src="imgs/perfiltiktok.png" alt="foto de perfil">
+                    </div>
+                    <div class="rail-item"><span>❤</span><small>249</small></div>
+                    <div class="rail-item"><span>🗨</span><small>34</small></div>
+                    <div class="rail-item"><span>↩</span><small>23</small></div>
+                    <div class="rail-item"><span>⛉</span><small>20</small></div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="post-info">
+            <div class="account-line">
+                <strong>TikTok Brasil</strong>
+                <span class="verified">✓</span>
+                <span class="date">• 10-09</span>
+            </div>
+
+            <p>
+                O que já é bom, pode ficar ainda melhor!<br>
+                O TikTok Bônus chegou para somar. <span class="more">...mais</span>
+            </p>
+
+            <div class="sound-line">
+                <span>♫</span>
+                <span>Som original — TikTok Brasil</span>
+            </div>
+        </section>
+
+        <div class="comment-bar">
+            <span>Adicionar comentário...</span>
+            <span>🖼</span>
+            <span>☺</span>
+            <span>@</span>
+        </div>
+    </main>
+
+    <div id="opportunity" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeOpportunity()" aria-label="Fechar">×</button>
+            <span class="modal-tag">PROGRAMA DE RECOMPENSAS</span>
+            <h2>Uma nova forma de aproveitar seus vídeos.</h2>
+            <p>
+                Participe de atividades relacionadas a vídeos curtos e
+                acumule recompensas conforme utiliza a plataforma.
+            </p>
+
+            <div class="opportunity-points">
+                <div><strong>▶</strong><span>Assista a vídeos curtos</span></div>
+                <div><strong>★</strong><span>Participe das atividades</span></div>
+                <div><strong>R$</strong><span>Acumule recompensas</span></div>
+            </div>
+
+            <button class="primary-button" onclick="goToSignup()">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function openOpportunity() {
+            document.getElementById("opportunity").classList.remove("hidden");
+        }
+
+        function closeOpportunity() {
+            document.getElementById("opportunity").classList.add("hidden");
+        }
+
+        function goToSignup() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
