@@ -131,6 +131,7 @@
             </select>
 
             <label>O que mais chamou sua atenção?</label>
+
             <div class="choice-grid">
                 <button type="button" onclick="selectChoice(this)">💰 A recompensa</button>
                 <button type="button" onclick="selectChoice(this)">📱 A familiaridade com a plataforma</button>
@@ -147,31 +148,46 @@
 
         <section class="share-block">
             <h2>🛡️ Não deixe seu amigo cair também.</h2>
-            <p>Compartilhe o projeto e ajude outras pessoas a reconhecer sinais de phishing.</p>
-            <button class="share-button" onclick="shareProject()">Compartilhar projeto</button>
+
+            <p>
+                Compartilhe o projeto e ajude outras pessoas a reconhecer sinais de phishing.
+            </p>
+
+            <button class="share-button" onclick="shareProject()">
+                Compartilhar projeto
+            </button>
         </section>
 
         <a class="home-link" href="index.html">Voltar ao início</a>
+
     </main>
 
     <script>
+
         let selectedChoice = "";
 
         function selectChoice(button) {
+
             document.querySelectorAll(".choice-grid button").forEach(item => {
                 item.classList.remove("selected");
             });
 
             button.classList.add("selected");
+
             selectedChoice = button.textContent.trim();
         }
 
+
         function finishSurvey() {
+
             const credibility = document.getElementById("credibility").value;
             const message = document.getElementById("surveyMessage");
 
             if (!credibility || !selectedChoice) {
-                message.textContent = "Selecione uma nota e uma opção antes de enviar.";
+
+                message.textContent =
+                    "Selecione uma nota e uma opção antes de enviar.";
+
                 return;
             }
 
@@ -180,21 +196,78 @@
              * A resposta abaixo é apenas exibida localmente.
              * Nenhuma resposta é enviada ou armazenada pelo site.
              */
+
             message.textContent =
                 "Resposta registrada apenas nesta tela para fins de demonstração. Obrigado!";
         }
 
-        async function shareProject() {
+
+        function shareProject() {
+
+            /*
+             * LINK PRINCIPAL DO PROJETO
+             *
+             * Esse é o endereço que será compartilhado.
+             * Ele sempre leva o usuário para a página inicial.
+             */
+
             const link = "https://sophiiesm.github.io/project_VoceCairia/";
 
+            /*
+             * Cria um campo temporário para copiar o link.
+             * Esse método funciona em mais navegadores.
+             */
+
+            const campo = document.createElement("textarea");
+
+            campo.value = link;
+
+            campo.style.position = "fixed";
+            campo.style.left = "-9999px";
+
+            document.body.appendChild(campo);
+
+            campo.focus();
+            campo.select();
+
             try {
-                await navigator.clipboard.writeText(link);
-                alert("Link do projeto copiado! Agora é só mandar para seus amigos 💙");
+
+                const copiado = document.execCommand("copy");
+
+                document.body.removeChild(campo);
+
+                if (copiado) {
+
+                    alert(
+                        "🔗 Link do projeto copiado!\n\nAgora é só mandar para seu amigo 💙"
+                    );
+
+                } else {
+
+                    mostrarLink(link);
+
+                }
+
             } catch (error) {
-                alert("Não foi possível copiar automaticamente. Copie o link do projeto manualmente.");
+
+                document.body.removeChild(campo);
+
+                mostrarLink(link);
+
             }
         }
+
+
+        function mostrarLink(link) {
+
+            alert(
+                "Copie este link para compartilhar o projeto:\n\n" + link
+            );
+
+        }
+
     </script>
+
 </body>
 
 </html>
