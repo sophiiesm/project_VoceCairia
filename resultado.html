@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você Cairia? — Resultado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="result-page">
+
+    <main class="result-container">
+
+        <section class="reveal">
+            <span class="result-tag">SIMULAÇÃO EDUCATIVA</span>
+
+            <h1>🚨 Você caiu em um golpe.</h1>
+
+            <p class="reveal-subtitle">
+                Calma — esta foi uma simulação de phishing.
+                Nenhuma informação digitada foi armazenada ou enviada.
+            </p>
+
+            <div class="project-info">
+                <strong>Projeto Você Cairia?</strong>
+                <span>Segurança da Informação • 3º ano — Técnico em Informática</span>
+                <span>Professor: Felipe Balem • IFRO — Campus Ariquemes • 2026</span>
+            </div>
+        </section>
+
+        <section class="lesson-block highlight">
+            <h2>Fique para aprender a nunca mais cair em um golpe digital.</h2>
+            <p>
+                O objetivo desta simulação não é constranger quem participou.
+                É mostrar como uma oferta que parece comum pode influenciar
+                uma decisão antes que a pessoa pare para verificar.
+            </p>
+        </section>
+
+        <section class="lesson-block">
+            <div class="section-kicker">🎣 EM 15 SEGUNDOS</div>
+            <h2>O que é phishing?</h2>
+            <p>
+                Phishing é uma forma de golpe que usa mensagens, páginas ou
+                ofertas falsas para convencer alguém a realizar uma ação ou
+                fornecer informações. A armadilha funciona quando a oferta
+                parece confiável o suficiente para a pessoa seguir em frente.
+            </p>
+        </section>
+
+        <section class="lesson-block">
+            <div class="section-kicker">🔎 OLHE DE NOVO</div>
+            <h2>O que você deveria ter percebido?</h2>
+
+            <div class="evidence-list">
+                <article class="evidence">
+                    <span>01</span>
+                    <div>
+                        <h3>A promessa de recompensa</h3>
+                        <p>
+                            A possibilidade de ganhar dinheiro foi usada para
+                            despertar interesse e incentivar a continuidade.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="evidence">
+                    <span>02</span>
+                    <div>
+                        <h3>A familiaridade com a plataforma</h3>
+                        <p>
+                            A oferta foi apresentada em um contexto conhecido,
+                            tornando a situação mais cotidiana e fácil de aceitar.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="evidence">
+                    <span>03</span>
+                    <div>
+                        <h3>O pedido de informações</h3>
+                        <p>
+                            Antes de fornecer dados, é importante perguntar por
+                            que aquela informação está sendo solicitada e para quem.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="evidence">
+                    <span>04</span>
+                    <div>
+                        <h3>A origem da oferta</h3>
+                        <p>
+                            Uma publicação parecer oficial não significa que a
+                            oportunidade realmente exista. Verifique pelos canais oficiais.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <div class="section-kicker">🛡️ ANTES DE CLICAR</div>
+            <h2>Faça uma pausa de alguns segundos.</h2>
+            <ul class="protection-list">
+                <li>Confira quem publicou ou enviou a oferta.</li>
+                <li>Procure a promoção diretamente no aplicativo ou site oficial.</li>
+                <li>Desconfie de vantagens que você não esperava receber.</li>
+                <li>Não forneça senhas ou outros dados sensíveis para “liberar” recompensas.</li>
+            </ul>
+        </section>
+
+        <section class="survey-block">
+            <div class="section-kicker">📊 AGORA É COM VOCÊ</div>
+            <h2>Queremos saber como a oferta pareceu.</h2>
+
+            <p>
+                Sua resposta ajuda a equipe a investigar a influência do
+                cotidiano e da promessa de recompensa na credibilidade da oferta.
+            </p>
+
+            <label for="credibility">Antes da revelação, quão confiável a oferta parecia?</label>
+            <select id="credibility">
+                <option value="">Selecione uma opção</option>
+                <option>1 — Nada confiável</option>
+                <option>2 — Pouco confiável</option>
+                <option>3 — Mais ou menos confiável</option>
+                <option>4 — Confiável</option>
+                <option>5 — Muito confiável</option>
+            </select>
+
+            <label>O que mais chamou sua atenção?</label>
+            <div class="choice-grid">
+                <button type="button" onclick="selectChoice(this)">💰 A recompensa</button>
+                <button type="button" onclick="selectChoice(this)">📱 A familiaridade com a plataforma</button>
+                <button type="button" onclick="selectChoice(this)">👀 A aparência da oferta</button>
+                <button type="button" onclick="selectChoice(this)">📝 A explicação da oportunidade</button>
+            </div>
+
+            <button class="primary-button survey-button" onclick="finishSurvey()">
+                Enviar resposta
+            </button>
+
+            <p id="surveyMessage" class="survey-message" aria-live="polite"></p>
+        </section>
+
+        <section class="share-block">
+            <h2>🛡️ Não deixe seu amigo cair também.</h2>
+            <p>Compartilhe o projeto e ajude outras pessoas a reconhecer sinais de phishing.</p>
+            <button class="share-button" onclick="shareProject()">Compartilhar projeto</button>
+        </section>
+
+        <a class="home-link" href="index.html">Voltar ao início</a>
+    </main>
+
+    <script>
+        let selectedChoice = "";
+
+        function selectChoice(button) {
+            document.querySelectorAll(".choice-grid button").forEach(item => {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+            selectedChoice = button.textContent.trim();
+        }
+
+        function finishSurvey() {
+            const credibility = document.getElementById("credibility").value;
+            const message = document.getElementById("surveyMessage");
+
+            if (!credibility || !selectedChoice) {
+                message.textContent = "Selecione uma nota e uma opção antes de enviar.";
+                return;
+            }
+
+            /*
+             * SIMULAÇÃO EDUCATIVA:
+             * A resposta abaixo é apenas exibida localmente.
+             * Nenhuma resposta é enviada ou armazenada pelo site.
+             */
+            message.textContent =
+                "Resposta registrada apenas nesta tela para fins de demonstração. Obrigado!";
+        }
+
+        async function shareProject() {
+            const shareData = {
+                title: "Projeto Você Cairia?",
+                text: "Conheça o projeto educativo sobre phishing.",
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (error) {
+                    // O usuário pode simplesmente fechar o compartilhamento.
+                }
+            } else if (navigator.clipboard) {
+                await navigator.clipboard.writeText(window.location.href);
+                alert("Link copiado. Compartilhe com seus colegas!");
+            } else {
+                alert("Compartilhe o endereço desta página com seus colegas!");
+            }
+        }
+    </script>
+</body>
+</html>
