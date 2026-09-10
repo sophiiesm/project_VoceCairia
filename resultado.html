@@ -194,19 +194,6 @@
                 alert("Não foi possível copiar automaticamente. Copie o link do projeto manualmente.");
             }
         }
-
-        if (navigator.share) {
-            try {
-                await navigator.share(shareData);
-            } catch (error) {
-                // O usuário pode simplesmente fechar o compartilhamento.
-            }
-        } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(window.location.href);
-            alert("Link copiado. Compartilhe com seus colegas!");
-        } else {
-            alert("Compartilhe o endereço desta página com seus colegas!");
-        }
     </script>
 </body>
 
